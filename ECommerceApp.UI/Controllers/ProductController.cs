@@ -44,6 +44,11 @@ namespace ECommerceApp.UI.Controllers
             return View(model);
         }
 
+        public IActionResult AddWarning(string productName)
+        {
+            TempData.Add("messageAlert", $"{productName} is out of stock.");
 
+            return RedirectToAction("Index", "Product");
+        }
     }
 }

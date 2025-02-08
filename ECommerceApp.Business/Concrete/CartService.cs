@@ -31,8 +31,41 @@ namespace ECommerceApp.Business.Concrete
 
         public void RemoveFromCart(Cart cart, int productId)
         {
-            var cartLine = cart.CartLines.FirstOrDefault(c => c.Product.ProductId == productId);
-            cart.CartLines.Remove(cartLine);
+            var cartLine = cart.CartLines.FirstOrDefault(c => c.Product!.ProductId == productId);
+
+            if (cartLine != null)
+            {
+                cart.CartLines.Remove(cartLine);
+            }
+
+        }
+
+        public void IncreaseProductQuantitiy(Cart cart, int productId)
+        {
+            CartLine cartLine = cart.CartLines.FirstOrDefault(c => c.Product!.ProductId == productId)!;
+
+            if (cartLine != null)
+            {
+                cartLine.Quantity++;
+            }
+        }
+
+        //Have Delete Fuctionality
+        public void DecreaseProductQuantitiy(Cart cart, int productId)
+        {
+            CartLine cartLine = cart.CartLines.FirstOrDefault(c => c.Product!.ProductId == productId)!;
+
+            if (cartLine != null)
+            {
+                if (cartLine.Quantity > 1)
+                {
+                    cartLine.Quantity--;
+                }
+                else 
+                {
+                    cart.CartLines.Remove(cartLine);
+                }
+            }
         }
     }
 }

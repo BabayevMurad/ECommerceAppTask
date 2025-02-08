@@ -16,10 +16,16 @@
     @foreach (var item in Model.Cart.CartLines)
     {
         <tr>
-            <td>@item.Product.ProductName</td>
+            <td>@item.Product!.ProductName</td>
             <td>@item.Product.UnitPrice</td>
             <td>@item.Product.UnitsInStock</td>
-            <td>@item.Quantity</td>
+            <td>
+                <div>
+                    <a href="/Cart/Increase?productId=@item.Product.ProductId&unitsInStock=@item.Product.UnitsInStock&quantitiy=@item.Quantity&productName=@item.Product!.ProductName" class="btn btn-dark btn-sm">+</a>
+                    @item.Quantity
+                    <a href="/Cart/Decrease?productId=@item.Product.ProductId" class="btn btn-dark btn-sm">-</a>
+                </div>
+            </td>
             <td>
                 <a class="btn btn-xs btn-danger" asp-controller="Cart" 
                 asp-action="Remove" asp-route-productId="@item.Product.ProductId"

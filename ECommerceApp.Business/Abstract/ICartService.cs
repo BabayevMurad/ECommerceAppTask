@@ -13,5 +13,7 @@ namespace ECommerceApp.Business.Abstract
         void AddToCart(Cart cart, Product product);
         List<CartLine>? List(Cart cart);
         void RemoveFromCart(Cart cart,int productId);
+        void IncreaseProductQuantitiy(Cart cart, int productId);
+        void DecreaseProductQuantitiy(Cart cart, int productId);
     }
 }

@@ -1,3 +1,5 @@
+@import "../lib/bootstrap/dist/css/bootstrap.css";
+
 html {
   font-size: 14px;
 }
@@ -19,4 +21,10 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.btn-succes-disabled {
+    color: #fff;
+    background-color: #3E6251;
+    border-color: #3E6251;
 }

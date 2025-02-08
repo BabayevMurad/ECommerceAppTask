@@ -52,6 +52,10 @@
                 {
                     <div class="alert alert-info animate__animated animate__bounceInLeft" role="alert">@TempData["message"]</div>
                 }
+                @if (TempData["messageAlert"] != null)
+                {
+                    <div class="alert alert-warning animate__animated animate__bounceInLeft" role="alert">@TempData["messageAlert"]</div>
+                }
                 @RenderBody()
             </main>
         </div>
