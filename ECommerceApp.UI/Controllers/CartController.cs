@@ -95,7 +95,7 @@ namespace ECommerceApp.UI.Controllers
             return RedirectToAction("List", "Cart");
         }
 
-        //Have Delete Functionalitiy From DecreaseProductQuantitiy
+        //Have Delete Functionalitiy From DecreaseProductQuantitiy.
         public IActionResult Decrease(int productId)
         {
             var cart = _cartSessionService.GetCart();
